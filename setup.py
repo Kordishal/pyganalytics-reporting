@@ -28,7 +28,7 @@ setup(
     name='pyganalytics-reporting',
     version=version,
     packages=find_packages(),
-    url='',
+    url='https://github.com/Kordishal/pyganalytics-reporting',
     license='MIT',
     author='Jonas Waeber',
     author_email='jonaswaeber@gmail.com',

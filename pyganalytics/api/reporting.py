@@ -15,7 +15,6 @@ class GoogleAnalyticsReportingAPIv4(object):
         self.retries = retries
         self.seconds_per_quota = kwargs.get('seconds_per_quota', 100)
 
-
     def batch_get(self, report_request, **kwargs):
         """
 
