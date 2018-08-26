@@ -2,6 +2,7 @@ from datetime import date
 
 import isodate
 from dateutil.relativedelta import *
+from pyganalytics.utility.dateranges import DateRange
 
 
 if __name__ == '__main__':
@@ -26,3 +27,12 @@ if __name__ == '__main__':
     seven_days_ago = today + relativedelta(days=-7)
     print(today)
     print(seven_days_ago.isoformat())
+
+    dr = DateRange('2018-08-20', '2018-08-27')
+    start = dr['startDate']
+    dr['endDate'] = '2018-07-37'
+
+    print(start)
+    print(dr['endDate'])
+    print()
+

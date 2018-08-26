@@ -1,7 +1,8 @@
 import json
 from typing import List
 from pyganalytics.utility.enums import *
-from pyganalytics.core.properties import DateRange
+from pyganalytics.utility import dateranges as dr
+from pyganalytics.utility.dateranges import DateRange
 
 
 class ReportRequest(object):
@@ -23,7 +24,7 @@ class ReportRequest(object):
     @date_ranges.setter
     def date_ranges(self, value: List[DateRange]):
         if value is None:
-            self._date_ranges = [DateRange.last_seven_days()]
+            self._date_ranges = [dr.last_seven_days]
         elif len(value) < 2:
             self._date_ranges = value
         else:
