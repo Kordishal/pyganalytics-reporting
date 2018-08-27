@@ -31,26 +31,6 @@ class GoogleAnalyticsReportingAPIv4(object):
         body['reportRequests'] = [rq.serialize() if isinstance(rq, ReportRequest) else rq for rq in body['reportRequests']]
         return self._execute_requests(self.service.reports().batchGet(body=body, **kwargs))
 
-    def get_report(self, view_id):
-        """Queries the Analytics Reporting API V4.
-
-        Args:
-          view_id: The view id for a view in your account
-        Returns:
-          The Analytics Reporting API V4 response.
-        """
-        return self.service.reports().batchGet(
-            body={
-                'reportRequests': [
-                    {
-                        'viewId': view_id,
-                        'dateRanges': [{'startDate': '7daysAgo', 'endDate': 'today'}],
-                        'metrics': [{'expression': 'ga:sessions'}],
-                        'dimensions': [{'name': 'ga:country'}]
-                    }]
-            }
-        ).execute()
-
     def _execute_requests(self, request):
         try:
             response = request.execute(num_retries=self.retries)
