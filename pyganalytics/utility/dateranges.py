@@ -37,13 +37,12 @@ def last_seven_days():
     """The last full seven days (excluding "today"). This is the default used when no date range is specified."""
     yesterday = today + relativedelta(days=-1)
     seven_days_ago = today + relativedelta(days=-7)
-    return seven_days_ago.isoformat(), yesterday.isoformat()
+    return DateRange(seven_days_ago.isoformat(), yesterday.isoformat())
 
 
 @property
 def last_week():
     """The last week from Monday to Sunday."""
-    today = date.today()
     last_sunday = today + relativedelta(weekday=SU(-1))
     last_monday = last_sunday + relativedelta(weekday=MO(-1))
     return DateRange(last_monday.isoformat(), last_sunday.isoformat())

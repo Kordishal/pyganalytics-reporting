@@ -30,7 +30,7 @@ if __name__ == '__main__':
 
     dr = DateRange('2018-08-20', '2018-08-27')
     start = dr['startDate']
-    dr['endDate'] = '2018-07-37'
+    dr['endDate'] = '2018-09-30'
 
     print(start)
     print(dr['endDate'])
