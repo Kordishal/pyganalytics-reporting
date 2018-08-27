@@ -1,7 +1,11 @@
 from enum import Enum
 
 
-class MetricType(Enum):
+class BaseEnum(str, Enum):
+    """Base class to make enums json serializable."""
+
+
+class MetricType(BaseEnum):
     """
     The metric types.
 
@@ -15,7 +19,7 @@ class MetricType(Enum):
     TIME = 'TIME'
 
 
-class Sampling(Enum):
+class Sampling(BaseEnum):
     """
     Values for the sampling level.
     """
@@ -24,7 +28,7 @@ class Sampling(Enum):
     LARGE = 'LARGE'
 
 
-class FilterLogicalOperator(Enum):
+class FilterLogicalOperator(BaseEnum):
     """
     How the filters are logically combined.
     """
@@ -32,7 +36,7 @@ class FilterLogicalOperator(Enum):
     AND = 'AND'
 
 
-class DimensionFilterOperator(Enum):
+class DimensionFilterOperator(BaseEnum):
     """
     """
     REGEXP = 'REGEXP'
@@ -46,7 +50,7 @@ class DimensionFilterOperator(Enum):
     IN_LIST = 'IN_LIST'
 
 
-class SegmentDimensionFilterOperator(Enum):
+class SegmentDimensionFilterOperator(BaseEnum):
     """
     """
     REGEXP = 'REGEXP'
@@ -60,7 +64,7 @@ class SegmentDimensionFilterOperator(Enum):
     IN_LIST = 'IN_LIST'
 
 
-class MetricFilterOperator(Enum):
+class MetricFilterOperator(BaseEnum):
     """
     Different comparison type options.
     Enum value 	Description
@@ -76,7 +80,7 @@ class MetricFilterOperator(Enum):
     IS_MISSING = 'IS_MISSING'
 
 
-class SegmentMetricFilterOperator(Enum):
+class SegmentMetricFilterOperator(BaseEnum):
     """
 
     """
@@ -86,7 +90,7 @@ class SegmentMetricFilterOperator(Enum):
     BETWEEN = 'BETWEEN'
 
 
-class OrderType(Enum):
+class OrderType(BaseEnum):
     """
 
     """
@@ -97,7 +101,7 @@ class OrderType(Enum):
     DIMENSION_AS_INTEGER = 'DIMENSION_AS_INTEGER'
 
 
-class SortOrder(Enum):
+class SortOrder(BaseEnum):
     """
 
     """
@@ -105,7 +109,7 @@ class SortOrder(Enum):
     DESCENDING = 'DESCENDING'
 
 
-class Scope(Enum):
+class Scope(BaseEnum):
     """
 
     """
@@ -115,7 +119,7 @@ class Scope(Enum):
     USER = 'USER'
 
 
-class MatchType(Enum):
+class MatchType(BaseEnum):
     """
 
     """
@@ -123,7 +127,7 @@ class MatchType(Enum):
     IMMEDIATELY_PRECEDES = 'IMMEDIATELY_PRECEDES'
 
 
-class CohortType(Enum):
+class CohortType(BaseEnum):
     """
     Only supported cohort type...
     """
