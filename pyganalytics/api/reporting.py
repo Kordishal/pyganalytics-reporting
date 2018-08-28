@@ -5,8 +5,6 @@ import time
 from apiclient import discovery
 from googleapiclient.errors import HttpError
 
-from pyganalytics.core.report_request import ReportRequest
-
 
 class GoogleAnalyticsReportingAPIv4(object):
 
@@ -28,7 +26,6 @@ class GoogleAnalyticsReportingAPIv4(object):
             body = {'reportRequests': report_request}
         else:
             body = {'reportRequests': [report_request]}
-        body['reportRequests'] = [rq.serialize() if isinstance(rq, ReportRequest) else rq for rq in body['reportRequests']]
         return self._execute_requests(self.service.reports().batchGet(body=body, **kwargs))
 
     def _execute_requests(self, request):

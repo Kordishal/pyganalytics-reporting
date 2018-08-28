@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-.
 import os
 import json
-import warnings
 
 from google.oauth2 import service_account
 from google.oauth2.credentials import Credentials

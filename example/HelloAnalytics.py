@@ -42,7 +42,7 @@ def get_report(analytics):
           'dimensions': [{'name': 'ga:country'}]
         }]
       }
-  ).execute()
+  )._execute()
 
 
 def print_response(response):

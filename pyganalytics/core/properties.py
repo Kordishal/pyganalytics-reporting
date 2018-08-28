@@ -9,7 +9,7 @@ class Metric(dict):
     :param formatting_type:
     """
 
-    def __init__(self, alias: str, expression: str, formattingType: MetricType):
+    def __init__(self, alias: str, expression: str, formattingType: MetricType = MetricType.INTEGER):
         super().__init__(alias=alias, expression=expression, formattingType=formattingType)
 
     def __setitem__(self, key, value):
