@@ -32,7 +32,8 @@ class KeyValueReport(OutputReport, dict):
         self._metric_type = MetricType[base_report['columnHeader']['metricHeader']['metricHeaderEntries'][0]['type']]
         if self._metric_type == MetricType.INTEGER:
             self._value_converter = int
-        self.append(base_report)
+        if 'rows' in base_report['data']:
+            self.append(base_report)
 
     def append(self, base_report: BaseReport):
         for item in base_report['data']['rows']:

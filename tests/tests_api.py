@@ -18,5 +18,5 @@ class TestClient(object):
         request = ReportRequest(viewId=self.view_id,
                                 dimensions=[{'name': 'ga:pagePath'}],
                                 metrics=Metric('Page Views', 'ga:pageviews'))
-        result = self.client.yearly(2016, 2018, store='output-{}.json', base_request=request)
-        assert len(result) == 3
+        result = self.client.yearly(2008, 2018, store='output-{}.json', base_request=request)
+        assert len(result) == 10
