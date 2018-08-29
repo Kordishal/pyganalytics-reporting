@@ -1,6 +1,6 @@
 import logging
 import json
-from typing import List, Union
+from typing import List, Union, Type
 from pyganalytics.api.reporting import GoogleAnalyticsReportingAPIv4
 
 from pyganalytics.utility import dr
@@ -20,7 +20,7 @@ class Client(object):
     def yearly(self, start: int, end: int,
                base_request: ReportRequest,
                store: Union[str, None] = None,
-               output: OutputReport = KeyValueReport) -> List[OutputReport]:
+               output: Type[OutputReport] = KeyValueReport) -> List[OutputReport]:
         results = list()
         date_ranges = dr.yearly(start, end)
 
