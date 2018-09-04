@@ -11,6 +11,9 @@ from pyganalytics.core.report import OutputReport, KeyValueReport
 
 
 class Client(object):
+    """
+    The API of this library.
+    """
 
     def __init__(self, credentials, **kwargs):
         self.logger = logging.getLogger(__name__)
