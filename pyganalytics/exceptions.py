@@ -10,3 +10,11 @@ class InvalidDateRange(PyGAnalyticsError):
 
 class DateBeyondPresent(PyGAnalyticsError):
     """Dates beyond present cannot be used."""
+
+
+class APIError(PyGAnalyticsError):
+    """Base exception for all API error wrappers."""
+
+
+class ServerError(APIError):
+    """"""

@@ -4,6 +4,7 @@ from typing import List, Union, Type
 from pyganalytics.api.reporting import GoogleAnalyticsReportingAPIv4
 
 from pyganalytics.utility import dr
+from pyganalytics.utility.dateranges import DateRange
 from pyganalytics.core import RequestIterator
 from pyganalytics.core.requests import ReportRequest
 from pyganalytics.core.report import OutputReport, KeyValueReport
@@ -17,13 +18,11 @@ class Client(object):
                                                        retries=kwargs.get('retries', 3),
                                                        logger=kwargs.get('logger', logging.getLogger(__name__)))
 
-    def yearly(self, start: int, end: int,
-               base_request: ReportRequest,
-               store: Union[str, None] = None,
-               output: Type[OutputReport] = KeyValueReport) -> List[OutputReport]:
+    def collect_reports(self, date_ranges: List[DateRange],
+                        base_request: ReportRequest,
+                        store: Union[str, None] = None,
+                        output: Type[OutputReport] = KeyValueReport) -> List[OutputReport]:
         results = list()
-        date_ranges = dr.yearly(start, end)
-
         for date_range in date_ranges:
             request = base_request.copy(date_range)
 
@@ -46,14 +45,18 @@ class Client(object):
 
         return results
 
-    def monthly(self):
-        pass
+    def yearly(self, start: int, end: int,
+               base_request: ReportRequest,
+               store: Union[str, None] = None,
+               output: Type[OutputReport] = KeyValueReport) -> List[OutputReport]:
+        date_ranges = dr.yearly(start, end)
+        return self.collect_reports(date_ranges, base_request, store=store, output=output)
 
-    def weekly(self):
-        pass
-
-    def daily(self):
-        pass
-
+    def monthly(self, start: int, end: int,
+                base_request: ReportRequest,
+                store: Union[str, None] = None,
+                output: Type[OutputReport] = KeyValueReport) -> List[OutputReport]:
+        date_ranges = dr.monthly(start, end)
+        return self.collect_reports(date_ranges, base_request, store=store, output=output)
 
 
