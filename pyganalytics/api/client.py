@@ -46,5 +46,14 @@ class Client(object):
 
         return results
 
+    def monthly(self):
+        pass
+
+    def weekly(self):
+        pass
+
+    def daily(self):
+        pass
+
 
 
