@@ -1,6 +1,6 @@
 language: python
 python:
-  - "3.7"
+  - "3.6"
 install: "pip install ."
 script:
   - "py.test -v tests/test_dates.py"
