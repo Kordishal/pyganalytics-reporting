@@ -17,4 +17,4 @@ class APIError(PyGAnalyticsError):
 
 
 class ServerError(APIError):
-    """"""
+    """A Google Server Error."""
