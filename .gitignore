@@ -1,4 +1,5 @@
 *.json
 dist/
 *.egg-info/
-.pytest_cache/.idea/*
+.pytest_cache/
+.idea/*
